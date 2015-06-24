@@ -9,8 +9,7 @@ Using Jinja, the displayed iOS password prompt will automatically change dependi
 
 Once the user has opened the email and submitted their credentials, King Phisher detects the client visit count using the Jinja variable `client.visit_count`. If this visit count is greater than one, the user will not be shown the password prompt. Instead, they will be immediately shown the email message contents, which is "Important Information: Please Read!". For testing purposes, change the Jinja tag to `{% if client.visit_count >= 1 %}` in order to view the password prompt multiple times. 
 
-![Alt text](https://raw.githubusercontent.com/coldfusion39/iOS-Meta-Refresh/screenshots/gmail.png "Gmail Example")
-![Alt text](https://raw.githubusercontent.com/coldfusion39/iOS-Meta-Refresh/screenshots/exchange.png "Exchange Example")
+![Alt text](https://raw.githubusercontent.com/coldfusion39/iOS-Meta-Refresh/screenshots/gmail.png "Gmail Example")![Alt text](https://raw.githubusercontent.com/coldfusion39/iOS-Meta-Refresh/screenshots/exchange.png "Exchange Example")
 
 ## License
 
