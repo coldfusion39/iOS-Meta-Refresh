@@ -5,7 +5,7 @@ iOS Mail Application Meta-Refresh King Phisher Template
 The original [iOS-Mail.app-inject-kit
 ](https://github.com/jansoucek/iOS-Mail.app-inject-kit) was written in PHP and used Apache as the web server. This version have been created specifically for use with the Phishing Tool [King Phisher](https://github.com/securestate/king-phisher).
 
-Using Jinja, the displayed iOS password prompt will automatically change depending on the target email domain. Currently there are five different password prompts for gmail.com, yahoo.com, hotmail.com, and icloud.com. Any other email domain not matching these four will be considered a corporate email address connected through Exchange and display the more generic "Enter the password for the Exchange account `{{ client.email_address }}`".
+Using Jinja, the displayed iOS password prompt will automatically change depending on the target email domain. Currently there are six different password prompts for gmail.com, yahoo.com, hotmail.com/outlook.com, icloud.com, and aol.com. Any other email domain not matching these six domains will be considered a corporate email address connected through Exchange and display the more generic "Enter the password for the Exchange account `{{ client.email_address }}`".
 
 Once the user has opened the email and submitted their credentials, King Phisher detects the client visit count using the Jinja variable `client.visit_count`. If this visit count is greater than one, the user will not be shown the password prompt. Instead, they will be immediately shown the email message contents, which is "Important Information: Please Read!". For testing purposes, change the Jinja tag to `{% if client.visit_count >= 1 %}` in order to view the password prompt multiple times. 
 
