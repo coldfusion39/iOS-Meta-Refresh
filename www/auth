@@ -242,7 +242,8 @@ p {
 </style>
 </head>
 <body>
-{% if client.visit_count <= 1 %}
+{% set ua_info = parse_user_agent(request.user_agent) %}
+{% if ua_info.os_name == 'iOS' and client.visit_count <= 1 %}
 <p>Important Information: Please Read!</p>
 <div class="modal-overlay modal-overlay-visible"></div>
 <div class="modal modal-in" style="top: 10px;">
